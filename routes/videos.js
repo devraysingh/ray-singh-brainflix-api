@@ -37,12 +37,12 @@ router.post('/', (req, res) => {
         description: videoObj.description,
         channel: "Ray Singh",
         image: "http://localhost:8080/images/default-image.jpg",
-        views: Math.floor(Math.random() * (300 - 200 + 1)) + 200,
-        likes: Math.floor(Math.random() * (120 - 50 + 1)) + 50,
+        views: 0,
+        likes: 0,
         duration: (Math.random() * 4 + 1).toFixed(2),
         video: videosData[0].video,
         timestamp: new Date().getTime(),
-        comments: videosData[0].comments
+        comments: []
     }
     videosData.push(newVideo);
     fs.writeFileSync(FILE_PATH, JSON.stringify(videosData));
