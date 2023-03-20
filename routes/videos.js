@@ -1,11 +1,13 @@
+//Requirements/Imports
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const { v4: uuid } = require('uuid');
 
+
 const FILE_PATH = './data/videos.json';
 
-
+//Reading JSON Data
 const readVideos = () => {
     const videosData = JSON.parse(fs.readFileSync(FILE_PATH));
     return videosData;
@@ -48,5 +50,5 @@ router.post('/', (req, res) => {
     fs.writeFileSync(FILE_PATH, JSON.stringify(videosData));
     res.status(201).json(newVideo);
 });
-
+//Exporting Routes
 module.exports = router;
